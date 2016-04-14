@@ -1,0 +1,352 @@
+Created by PLY version 3.8 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> start
+Rule 1     start -> header
+Rule 2     start -> exe
+Rule 3     start -> exenc
+Rule 4     start -> system
+Rule 5     start -> systemnc
+Rule 6     header -> HEADER
+Rule 7     exe -> Q EXE BETWEEN INTEGER BETWEEN SESSION BETWEEN INTEGER BETWEEN INTEGER COMMA INTEGER K Q
+Rule 8     exenc -> Q EXE BETWEEN INTEGER BETWEEN SESSION BETWEEN INTEGER BETWEEN INTEGER K Q
+Rule 9     system -> Q SYSTEM BETWEEN INTEGER BETWEEN SESSION BETWEEN INTEGER BETWEEN INTEGER COMMA INTEGER K Q
+Rule 10    systemnc -> Q SYSTEM BETWEEN INTEGER BETWEEN SESSION BETWEEN INTEGER BETWEEN INTEGER K Q
+
+Terminals, with rules where they appear
+
+BETWEEN              : 7 7 7 7 8 8 8 8 9 9 9 9 10 10 10 10
+COMMA                : 7 9
+EXE                  : 7 8
+HEADER               : 6
+INTEGER              : 7 7 7 7 8 8 8 9 9 9 9 10 10 10
+K                    : 7 8 9 10
+Q                    : 7 7 8 8 9 9 10 10
+SESSION              : 7 8 9 10
+SYSTEM               : 9 10
+error                : 
+
+Nonterminals, with rules where they appear
+
+exe                  : 2
+exenc                : 3
+header               : 1
+start                : 0
+system               : 4
+systemnc             : 5
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . start
+    (1) start -> . header
+    (2) start -> . exe
+    (3) start -> . exenc
+    (4) start -> . system
+    (5) start -> . systemnc
+    (6) header -> . HEADER
+    (7) exe -> . Q EXE BETWEEN INTEGER BETWEEN SESSION BETWEEN INTEGER BETWEEN INTEGER COMMA INTEGER K Q
+    (8) exenc -> . Q EXE BETWEEN INTEGER BETWEEN SESSION BETWEEN INTEGER BETWEEN INTEGER K Q
+    (9) system -> . Q SYSTEM BETWEEN INTEGER BETWEEN SESSION BETWEEN INTEGER BETWEEN INTEGER COMMA INTEGER K Q
+    (10) systemnc -> . Q SYSTEM BETWEEN INTEGER BETWEEN SESSION BETWEEN INTEGER BETWEEN INTEGER K Q
+
+    HEADER          shift and go to state 1
+    Q               shift and go to state 7
+
+    exe                            shift and go to state 2
+    systemnc                       shift and go to state 3
+    header                         shift and go to state 4
+    exenc                          shift and go to state 5
+    system                         shift and go to state 6
+    start                          shift and go to state 8
+
+state 1
+
+    (6) header -> HEADER .
+
+    $end            reduce using rule 6 (header -> HEADER .)
+
+
+state 2
+
+    (2) start -> exe .
+
+    $end            reduce using rule 2 (start -> exe .)
+
+
+state 3
+
+    (5) start -> systemnc .
+
+    $end            reduce using rule 5 (start -> systemnc .)
+
+
+state 4
+
+    (1) start -> header .
+
+    $end            reduce using rule 1 (start -> header .)
+
+
+state 5
+
+    (3) start -> exenc .
+
+    $end            reduce using rule 3 (start -> exenc .)
+
+
+state 6
+
+    (4) start -> system .
+
+    $end            reduce using rule 4 (start -> system .)
+
+
+state 7
+
+    (7) exe -> Q . EXE BETWEEN INTEGER BETWEEN SESSION BETWEEN INTEGER BETWEEN INTEGER COMMA INTEGER K Q
+    (8) exenc -> Q . EXE BETWEEN INTEGER BETWEEN SESSION BETWEEN INTEGER BETWEEN INTEGER K Q
+    (9) system -> Q . SYSTEM BETWEEN INTEGER BETWEEN SESSION BETWEEN INTEGER BETWEEN INTEGER COMMA INTEGER K Q
+    (10) systemnc -> Q . SYSTEM BETWEEN INTEGER BETWEEN SESSION BETWEEN INTEGER BETWEEN INTEGER K Q
+
+    EXE             shift and go to state 9
+    SYSTEM          shift and go to state 10
+
+
+state 8
+
+    (0) S' -> start .
+
+
+
+state 9
+
+    (7) exe -> Q EXE . BETWEEN INTEGER BETWEEN SESSION BETWEEN INTEGER BETWEEN INTEGER COMMA INTEGER K Q
+    (8) exenc -> Q EXE . BETWEEN INTEGER BETWEEN SESSION BETWEEN INTEGER BETWEEN INTEGER K Q
+
+    BETWEEN         shift and go to state 11
+
+
+state 10
+
+    (9) system -> Q SYSTEM . BETWEEN INTEGER BETWEEN SESSION BETWEEN INTEGER BETWEEN INTEGER COMMA INTEGER K Q
+    (10) systemnc -> Q SYSTEM . BETWEEN INTEGER BETWEEN SESSION BETWEEN INTEGER BETWEEN INTEGER K Q
+
+    BETWEEN         shift and go to state 12
+
+
+state 11
+
+    (7) exe -> Q EXE BETWEEN . INTEGER BETWEEN SESSION BETWEEN INTEGER BETWEEN INTEGER COMMA INTEGER K Q
+    (8) exenc -> Q EXE BETWEEN . INTEGER BETWEEN SESSION BETWEEN INTEGER BETWEEN INTEGER K Q
+
+    INTEGER         shift and go to state 13
+
+
+state 12
+
+    (9) system -> Q SYSTEM BETWEEN . INTEGER BETWEEN SESSION BETWEEN INTEGER BETWEEN INTEGER COMMA INTEGER K Q
+    (10) systemnc -> Q SYSTEM BETWEEN . INTEGER BETWEEN SESSION BETWEEN INTEGER BETWEEN INTEGER K Q
+
+    INTEGER         shift and go to state 14
+
+
+state 13
+
+    (7) exe -> Q EXE BETWEEN INTEGER . BETWEEN SESSION BETWEEN INTEGER BETWEEN INTEGER COMMA INTEGER K Q
+    (8) exenc -> Q EXE BETWEEN INTEGER . BETWEEN SESSION BETWEEN INTEGER BETWEEN INTEGER K Q
+
+    BETWEEN         shift and go to state 15
+
+
+state 14
+
+    (9) system -> Q SYSTEM BETWEEN INTEGER . BETWEEN SESSION BETWEEN INTEGER BETWEEN INTEGER COMMA INTEGER K Q
+    (10) systemnc -> Q SYSTEM BETWEEN INTEGER . BETWEEN SESSION BETWEEN INTEGER BETWEEN INTEGER K Q
+
+    BETWEEN         shift and go to state 16
+
+
+state 15
+
+    (7) exe -> Q EXE BETWEEN INTEGER BETWEEN . SESSION BETWEEN INTEGER BETWEEN INTEGER COMMA INTEGER K Q
+    (8) exenc -> Q EXE BETWEEN INTEGER BETWEEN . SESSION BETWEEN INTEGER BETWEEN INTEGER K Q
+
+    SESSION         shift and go to state 17
+
+
+state 16
+
+    (9) system -> Q SYSTEM BETWEEN INTEGER BETWEEN . SESSION BETWEEN INTEGER BETWEEN INTEGER COMMA INTEGER K Q
+    (10) systemnc -> Q SYSTEM BETWEEN INTEGER BETWEEN . SESSION BETWEEN INTEGER BETWEEN INTEGER K Q
+
+    SESSION         shift and go to state 18
+
+
+state 17
+
+    (7) exe -> Q EXE BETWEEN INTEGER BETWEEN SESSION . BETWEEN INTEGER BETWEEN INTEGER COMMA INTEGER K Q
+    (8) exenc -> Q EXE BETWEEN INTEGER BETWEEN SESSION . BETWEEN INTEGER BETWEEN INTEGER K Q
+
+    BETWEEN         shift and go to state 19
+
+
+state 18
+
+    (9) system -> Q SYSTEM BETWEEN INTEGER BETWEEN SESSION . BETWEEN INTEGER BETWEEN INTEGER COMMA INTEGER K Q
+    (10) systemnc -> Q SYSTEM BETWEEN INTEGER BETWEEN SESSION . BETWEEN INTEGER BETWEEN INTEGER K Q
+
+    BETWEEN         shift and go to state 20
+
+
+state 19
+
+    (7) exe -> Q EXE BETWEEN INTEGER BETWEEN SESSION BETWEEN . INTEGER BETWEEN INTEGER COMMA INTEGER K Q
+    (8) exenc -> Q EXE BETWEEN INTEGER BETWEEN SESSION BETWEEN . INTEGER BETWEEN INTEGER K Q
+
+    INTEGER         shift and go to state 21
+
+
+state 20
+
+    (9) system -> Q SYSTEM BETWEEN INTEGER BETWEEN SESSION BETWEEN . INTEGER BETWEEN INTEGER COMMA INTEGER K Q
+    (10) systemnc -> Q SYSTEM BETWEEN INTEGER BETWEEN SESSION BETWEEN . INTEGER BETWEEN INTEGER K Q
+
+    INTEGER         shift and go to state 22
+
+
+state 21
+
+    (7) exe -> Q EXE BETWEEN INTEGER BETWEEN SESSION BETWEEN INTEGER . BETWEEN INTEGER COMMA INTEGER K Q
+    (8) exenc -> Q EXE BETWEEN INTEGER BETWEEN SESSION BETWEEN INTEGER . BETWEEN INTEGER K Q
+
+    BETWEEN         shift and go to state 23
+
+
+state 22
+
+    (9) system -> Q SYSTEM BETWEEN INTEGER BETWEEN SESSION BETWEEN INTEGER . BETWEEN INTEGER COMMA INTEGER K Q
+    (10) systemnc -> Q SYSTEM BETWEEN INTEGER BETWEEN SESSION BETWEEN INTEGER . BETWEEN INTEGER K Q
+
+    BETWEEN         shift and go to state 24
+
+
+state 23
+
+    (7) exe -> Q EXE BETWEEN INTEGER BETWEEN SESSION BETWEEN INTEGER BETWEEN . INTEGER COMMA INTEGER K Q
+    (8) exenc -> Q EXE BETWEEN INTEGER BETWEEN SESSION BETWEEN INTEGER BETWEEN . INTEGER K Q
+
+    INTEGER         shift and go to state 25
+
+
+state 24
+
+    (9) system -> Q SYSTEM BETWEEN INTEGER BETWEEN SESSION BETWEEN INTEGER BETWEEN . INTEGER COMMA INTEGER K Q
+    (10) systemnc -> Q SYSTEM BETWEEN INTEGER BETWEEN SESSION BETWEEN INTEGER BETWEEN . INTEGER K Q
+
+    INTEGER         shift and go to state 26
+
+
+state 25
+
+    (7) exe -> Q EXE BETWEEN INTEGER BETWEEN SESSION BETWEEN INTEGER BETWEEN INTEGER . COMMA INTEGER K Q
+    (8) exenc -> Q EXE BETWEEN INTEGER BETWEEN SESSION BETWEEN INTEGER BETWEEN INTEGER . K Q
+
+    COMMA           shift and go to state 28
+    K               shift and go to state 27
+
+
+state 26
+
+    (9) system -> Q SYSTEM BETWEEN INTEGER BETWEEN SESSION BETWEEN INTEGER BETWEEN INTEGER . COMMA INTEGER K Q
+    (10) systemnc -> Q SYSTEM BETWEEN INTEGER BETWEEN SESSION BETWEEN INTEGER BETWEEN INTEGER . K Q
+
+    COMMA           shift and go to state 30
+    K               shift and go to state 29
+
+
+state 27
+
+    (8) exenc -> Q EXE BETWEEN INTEGER BETWEEN SESSION BETWEEN INTEGER BETWEEN INTEGER K . Q
+
+    Q               shift and go to state 31
+
+
+state 28
+
+    (7) exe -> Q EXE BETWEEN INTEGER BETWEEN SESSION BETWEEN INTEGER BETWEEN INTEGER COMMA . INTEGER K Q
+
+    INTEGER         shift and go to state 32
+
+
+state 29
+
+    (10) systemnc -> Q SYSTEM BETWEEN INTEGER BETWEEN SESSION BETWEEN INTEGER BETWEEN INTEGER K . Q
+
+    Q               shift and go to state 33
+
+
+state 30
+
+    (9) system -> Q SYSTEM BETWEEN INTEGER BETWEEN SESSION BETWEEN INTEGER BETWEEN INTEGER COMMA . INTEGER K Q
+
+    INTEGER         shift and go to state 34
+
+
+state 31
+
+    (8) exenc -> Q EXE BETWEEN INTEGER BETWEEN SESSION BETWEEN INTEGER BETWEEN INTEGER K Q .
+
+    $end            reduce using rule 8 (exenc -> Q EXE BETWEEN INTEGER BETWEEN SESSION BETWEEN INTEGER BETWEEN INTEGER K Q .)
+
+
+state 32
+
+    (7) exe -> Q EXE BETWEEN INTEGER BETWEEN SESSION BETWEEN INTEGER BETWEEN INTEGER COMMA INTEGER . K Q
+
+    K               shift and go to state 35
+
+
+state 33
+
+    (10) systemnc -> Q SYSTEM BETWEEN INTEGER BETWEEN SESSION BETWEEN INTEGER BETWEEN INTEGER K Q .
+
+    $end            reduce using rule 10 (systemnc -> Q SYSTEM BETWEEN INTEGER BETWEEN SESSION BETWEEN INTEGER BETWEEN INTEGER K Q .)
+
+
+state 34
+
+    (9) system -> Q SYSTEM BETWEEN INTEGER BETWEEN SESSION BETWEEN INTEGER BETWEEN INTEGER COMMA INTEGER . K Q
+
+    K               shift and go to state 36
+
+
+state 35
+
+    (7) exe -> Q EXE BETWEEN INTEGER BETWEEN SESSION BETWEEN INTEGER BETWEEN INTEGER COMMA INTEGER K . Q
+
+    Q               shift and go to state 37
+
+
+state 36
+
+    (9) system -> Q SYSTEM BETWEEN INTEGER BETWEEN SESSION BETWEEN INTEGER BETWEEN INTEGER COMMA INTEGER K . Q
+
+    Q               shift and go to state 38
+
+
+state 37
+
+    (7) exe -> Q EXE BETWEEN INTEGER BETWEEN SESSION BETWEEN INTEGER BETWEEN INTEGER COMMA INTEGER K Q .
+
+    $end            reduce using rule 7 (exe -> Q EXE BETWEEN INTEGER BETWEEN SESSION BETWEEN INTEGER BETWEEN INTEGER COMMA INTEGER K Q .)
+
+
+state 38
+
+    (9) system -> Q SYSTEM BETWEEN INTEGER BETWEEN SESSION BETWEEN INTEGER BETWEEN INTEGER COMMA INTEGER K Q .
+
+    $end            reduce using rule 9 (system -> Q SYSTEM BETWEEN INTEGER BETWEEN SESSION BETWEEN INTEGER BETWEEN INTEGER COMMA INTEGER K Q .)
+
